@@ -28,3 +28,4 @@
     #- tuned
     - bluetooth
     - auto-cpufreq
+    - sshd
