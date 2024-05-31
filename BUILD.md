@@ -1,9 +1,7 @@
 
 sudo pacman -S less git wget curl openssh cowsay python-pip btop
 
-# without venv
 
-yay -S auto-cpufreq
 yay -S bluez blueberry
 yay -S xdg-user-dirs
 
@@ -24,5 +22,8 @@ ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook setup-01-arch-prerequirements.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
 
 ansible-playbook setup-02-de.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
+
+# without venv
+yay -S auto-cpufreq
 
 ansible-playbook setup-03-additions-arch.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
