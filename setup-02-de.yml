@@ -55,6 +55,8 @@
               - bemenu
               - bemenu-wayland
               - blueman
+              - bluez
+              - bluez-utils
               - blueberry
               - brightnessctl
               - cdrtools
