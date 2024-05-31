@@ -26,4 +26,5 @@
   become: true
   with_items:
     #- tuned
+    - bluetooth
     - auto-cpufreq
