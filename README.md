@@ -93,11 +93,21 @@ Reasons why I use ansible:
 The playbooks are completely idempotent and can be re-run without problems. The playbook setup-01 is required for the other playbooks as it will install the ansible aur module. setup-02 installs the desktop environment and setup-03 does adjustments mainly to suit my preferences, which can also be useful for others. Every task in the playbooks has a describing name. So it should be easy even without ansible knowledge to know, what each task does.
 
 ```bash
+
+# without venv
+yay -S auto-cpufreq
+yay -S bluez blueberry
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth
+alacritty migrate
+
 python -m venv ~/venv
 source venv/bin/activate
 pip install ansible
 yay -S xdg-user-dirs
-sudo pacman -S less
+sudo pacman -S less git wget curl openssh cowsay
+
+# copy ssh keys locally
 
 ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook setup-01-arch-prerequirements.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff

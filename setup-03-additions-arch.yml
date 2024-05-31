@@ -144,14 +144,14 @@
       with_items:
         - { src: "{{ ansible_user_dir }}/.config/Code - OSS", dest: "{{ ansible_user_dir }}/.config/Code" }
 
-    - name: Common | Disabling gdm systemd unit
-      ansible.builtin.systemd:
-        name: "{{ item }}"
-        enabled: false
-        daemon_reload: true
-      become: true
-      with_items:
-        - gdm
+    # - name: Common | Disabling gdm systemd unit
+    #   ansible.builtin.systemd:
+    #     name: "{{ item }}"
+    #     enabled: false
+    #     daemon_reload: true
+    #   become: true
+    #   with_items:
+    #     - gdm
 
     - name: Common | Enable autologin for gnome-keyring in pam module "login"
       community.general.pamd:
