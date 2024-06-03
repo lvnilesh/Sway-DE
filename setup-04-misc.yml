@@ -1,0 +1,37 @@
+---
+- name: Installing prerequirements
+  hosts: "{{ custom_hosts | default('127.0.0.1') }}"
+  connection: "{{ custom_connection | default('local') }}"
+  strategy: linear
+
+  tasks:
+    - name: Arch Tasks
+      when: ansible_distribution == 'Archlinux'
+      block:
+        - name: Run command if /path/to/database does not exist (with 'args' keyword)
+          ansible.builtin.command: alacritty migrate
+          args:
+            creates: /home/cloudgenius/.config/alacritty/alacritty.toml
+
+        - name: Arch | Installing required software
+          community.general.pacman:
+            name:
+              - git
+              - xdg-user-dirs
+              - git
+              - less
+              - btop
+              - openssh
+              - curl
+              - vi
+              - firefox
+            state: present
+          become: true
+
+        - name: set start sway script
+          file: src=$HOME/Sway-DE/startw dest=$HOME/startw state=link force=yes
+
+        - name: git config
+          ansible.builtin.shell: |
+            git config --global user.email nilesh@cloudgeni.us
+            git config --global user.name Nilesh

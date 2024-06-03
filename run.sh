@@ -3,3 +3,4 @@ ansible-galaxy collection install community.general kewlfft.aur
 ansible-playbook setup-01-arch-prerequirements.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
 ansible-playbook setup-02-de.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
 ansible-playbook setup-03-additions-arch.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
+ansible-playbook setup-04-misc.yml -K -e 'ansible_python_interpreter=/usr/bin/python3' --diff
